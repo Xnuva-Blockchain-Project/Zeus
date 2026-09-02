@@ -1,0 +1,33 @@
+# /etc/conf.d/zeusd: config file for /etc/init.d/zeusd
+
+# Config file location
+#BLACKMORED_CONFIGFILE="/etc/zeus/zeus.conf"
+
+# What directory to write pidfile to?  (created and owned by $BLACKMORED_USER)
+#BLACKMORED_PIDDIR="/var/run/zeusd"
+
+# What filename to give the pidfile
+#BLACKMORED_PIDFILE="${BLACKMORED_PIDDIR}/zeusd.pid"
+
+# Where to write zeusd data (be mindful that the blockchain is large)
+#BLACKMORED_DATADIR="/var/lib/zeusd"
+
+# User and group to own zeusd process
+#BLACKMORED_USER="zeus"
+#BLACKMORED_GROUP="zeus"
+
+# Path to zeusd executable
+#BLACKMORED_BIN="/usr/bin/zeusd"
+
+# Nice value to run zeusd under
+#BLACKMORED_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#BLACKMORED_OPTS=""
+
+# The timeout in seconds OpenRC will wait for zeusd to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+BLACKMORED_SIGTERM_TIMEOUT=600
