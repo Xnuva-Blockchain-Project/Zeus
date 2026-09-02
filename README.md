@@ -17,7 +17,8 @@ What is Zeus?
 Zeus is the name of open source software which enables the use of this currency. It takes Zeus to the next level by building upon
 Bitcoin Core 0.13.2 with some patches from newer Bitcoin Core versions to offer performance enhancements, wider compatibility with third party services and a more advanced base.
 
-For more information, as well as an immediately useable, binary version of the Zeus software, see https://europazeus.org.
+The maintained Zeus source is published at https://github.com/Xnuva-Blockchain-Project/Zeus.
+Official binary releases will be published only after qualification and tagging.
 
 License
 -------
@@ -28,9 +29,10 @@ information or see https://opensource.org/licenses/MIT.
 Development Process
 -------------------
 
-The `master` branch is regularly built and tested, but is not guaranteed to be
-completely stable. [Tags](https://github.com/Xnuva-Blockchain-Project/Zeus/tags) are created
-regularly to indicate new official, stable release versions of Zeus.
+The `main` branch contains the maintained Zeus source. Changes intended for release
+are qualified against the published source before an official tag is created.
+[Tags](https://github.com/Xnuva-Blockchain-Project/Zeus/tags) identify specific
+maintained releases.
 
 Change log can be found in [CHANGELOG.md](CHANGELOG.md).
 
@@ -51,10 +53,10 @@ submit new unit tests for old code. Unit tests can be compiled and run
 (assuming they weren't disabled in configure) with: `make check`
 
 There are also [regression and integration tests](/qa) of the RPC interface, written
-in Python, that are run automatically on the build server.
-These tests can be run (if the [test dependencies](/qa) are installed) with: `qa/pull-tester/rpc-tests.py`
+in Python. These tests can be run (if the [test dependencies](/qa) are installed)
+with: `qa/pull-tester/rpc-tests.py`
 
-The Travis CI system makes sure that every pull request is built for Windows, Linux, and OS X, and that unit/sanity tests are run automatically.
+Maintained releases are qualified against the exact public source commit before tagging.
 
 ### Manual Quality Assurance (QA) Testing
 
