@@ -1,0 +1,35 @@
+name: Publish Windows downloads
+
+on:
+  push:
+    branches:
+      - windows-quick-build-20260907
+    paths:
+      - .github/workflows/publish-windows-downloads.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download successful Windows artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euxo pipefail
+          gh run download 34097910645 -n "ZUS-Windows-x64" -D package
+          ls -lah package
+          (cd package && zip -9 -r "../ZUS-Windows-x64.zip" .)
+
+      - name: Publish permanent GitHub download
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euxo pipefail
+          gh release upload "v13.2.0-xnuva.1" "ZUS-Windows-x64.zip" package/* --clobber
