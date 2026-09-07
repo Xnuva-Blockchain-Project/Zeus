@@ -1,0 +1,60 @@
+name: Windows quick build
+
+on:
+  push:
+    branches:
+      - windows-quick-build-20260907
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows-x64:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Windows x64 executables
+        shell: bash
+        run: |
+          set -euxo pipefail
+          mkdir -p windows-artifacts windows-install
+          docker run --rm \
+            -v "$PWD:/src" \
+            -w /src \
+            ubuntu:18.04 \
+            bash -euxo pipefail -c '
+              export DEBIAN_FRONTEND=noninteractive
+              apt-get update
+              apt-get install -y --no-install-recommends \
+                build-essential libtool autotools-dev automake pkg-config \
+                bsdmainutils curl git ca-certificates patch perl python3 \
+                python3-setuptools cmake gperf bison gettext unzip zip xz-utils \
+                g++-mingw-w64-x86-64 mingw-w64 nsis
+              update-alternatives --set x86_64-w64-mingw32-g++ /usr/bin/x86_64-w64-mingw32-g++-posix || true
+              update-alternatives --set x86_64-w64-mingw32-gcc /usr/bin/x86_64-w64-mingw32-gcc-posix || true
+              make -C depends HOST=x86_64-w64-mingw32 -j2
+              ./autogen.sh
+              CONFIG_SITE="$PWD/depends/x86_64-w64-mingw32/share/config.site" \
+                ./configure --prefix=/ --disable-tests --disable-bench
+              make -j2
+              make install DESTDIR=/src/windows-install || true
+              make deploy || true
+              find src windows-install . -maxdepth 4 -type f -iname "*.exe" -print0 2>/dev/null \
+                | while IFS= read -r -d "" f; do cp -f "$f" /src/windows-artifacts/; done
+              x86_64-w64-mingw32-strip /src/windows-artifacts/*.exe || true
+              cd /src/windows-artifacts
+              sha256sum *.exe > SHA256SUMS.txt
+            '
+
+      - name: Show packaged executables
+        run: ls -lah windows-artifacts
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ZUS-Windows-x64
+          path: windows-artifacts/*
+          if-no-files-found: error
+          retention-days: 7
