@@ -6,6 +6,7 @@
 #include <consensus/consensus.h>
 #include <consensus/params.h>
 #include <script/interpreter.h>
+#include <zeus/supply_cap.h>
 
 namespace zeus {
 
@@ -17,13 +18,23 @@ CAmount ProofOfWorkSubsidy()
 
 CAmount ProofOfStakeSubsidy(const int height, const Consensus::Params& params)
 {
-    // Preserve the CURRENT legacy source behaviour for migration purposes.
-    //
-    // IMPORTANT: this is not accepted as proof of a true aggregate 40,000,000
-    // ZUS cap. The final cap rule will be derived separately from live-chain
-    // issuance and introduced only as an explicit forward-activation change.
+    // Preserve the CURRENT legacy source behaviour before supply-cap activation.
     if (height > params.nLastPOWBlock) return 0;
     return 14 * COIN;
+}
+
+CAmount CappedProofOfWorkSubsidy(const int height,
+                                 const CAmount previous_issued,
+                                 const Consensus::Params& params)
+{
+    return LimitSubsidyBySupplyCap(height, previous_issued, ProofOfWorkSubsidy(), params);
+}
+
+CAmount CappedProofOfStakeSubsidy(const int height,
+                                  const CAmount previous_issued,
+                                  const Consensus::Params& params)
+{
+    return LimitSubsidyBySupplyCap(height, previous_issued, ProofOfStakeSubsidy(height, params), params);
 }
 
 script_verify_flags ScriptVerifyFlags(const int64_t block_time, const Consensus::Params& params)
