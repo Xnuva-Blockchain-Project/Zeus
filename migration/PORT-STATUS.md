@@ -45,3 +45,14 @@ The `modern-core` submodule is pinned to the exact Bitcoin Core v31.1 release co
 ## Hard gate
 
 Nothing from this branch is to be merged to `main`, released, or connected as an authoritative live node until historical compatibility is proven.
+
+
+## Supply-cap implementation
+
+- Published maximum configured: **40,000,000 ZUS**.
+- Cumulative net issued supply is tracked in the modern block index.
+- PoW/PoS fee-adjusted issuance helpers are implemented.
+- Final subsidy can be trimmed to the exact remaining mintable amount.
+- Post-activation over-cap blocks are rejected.
+- Mainnet activation height remains deliberately unset (`-1`) until live-chain issuance and tip are verified.
+- See `migration/SUPPLY-CAP.md`.
