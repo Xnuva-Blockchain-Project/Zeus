@@ -1,0 +1,3 @@
+[submodule "modern-core"]
+	path = modern-core
+	url = https://github.com/bitcoin/bitcoin.git
