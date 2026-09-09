@@ -5,6 +5,7 @@
 
 #include <consensus/amount.h>
 
+class CBlockIndex;
 namespace Consensus { struct Params; }
 
 namespace zeus {
@@ -37,6 +38,20 @@ bool CheckSupplyCap(int height,
 
 /** Deterministic cumulative supply value to write into CBlockIndex. */
 CAmount NextIssuedSupply(CAmount previous_issued, CAmount block_net_new_issuance);
+
+/**
+ * Validate the block's actual net new issuance and record cumulative issued
+ * supply in its modern CBlockIndex entry.
+ *
+ * For PoW pass coinbase_value and actual_stake_reward=0.
+ * For PoS pass actual_stake_reward and coinbase_value=0.
+ */
+bool ValidateAndRecordSupply(CBlockIndex& index,
+                             bool proof_of_stake,
+                             CAmount coinbase_value,
+                             CAmount actual_stake_reward,
+                             CAmount fees,
+                             const Consensus::Params& params);
 
 } // namespace zeus
 
