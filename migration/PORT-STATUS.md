@@ -8,11 +8,23 @@
 
 - Created isolated modernisation branch; Zeus `main` remains untouched.
 - Pinned signed Bitcoin Core v31.1 upstream commit `9be056a8a72b624dae9623b2f7bded92c2a21c91`.
-- Seeded modern Bitcoin Core build/chain/consensus/validation reference files under `upstream-bitcoin-core-31.1/`.
+- Added the **entire Bitcoin Core v31.1 source tree** as the pinned `modern-core` Git submodule.
+- Seeded modern Bitcoin Core build/chain/consensus/validation reference files under `upstream-bitcoin-core-31.1/` for easy side-by-side inspection.
 - Recorded a Zeus consensus-preservation manifest from the current legacy source.
-- Added a deterministic bootstrap script for materialising the exact full Bitcoin Core v31.1 upstream tree outside the live source tree.
+- Snapshotted the critical legacy Zeus consensus files under `migration/legacy-consensus-snapshot/`.
+- Added a deterministic bootstrap script for materialising the exact Bitcoin Core v31.1 upstream tree independently.
 - Identified PoS-specific structures that vanilla Bitcoin Core does not provide and therefore must be transplanted deliberately.
 - Marked the existing 40m-related legacy subsidy cutoff as **unverified supply-cap logic**, not a migration assumption.
+
+## Checkout
+
+Use:
+
+```bash
+git clone --recurse-submodules -b modernisation/bitcoin-core-31.1-experimental-do-not-release https://github.com/Xnuva-Blockchain-Project/Zeus.git
+```
+
+The `modern-core` submodule is pinned to the exact Bitcoin Core v31.1 release commit. Do not advance it casually.
 
 ## Mechanical port sequence
 
