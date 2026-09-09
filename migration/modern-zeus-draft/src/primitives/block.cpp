@@ -7,14 +7,32 @@
 #include <primitives/block.h>
 
 #include <hash.h>
+#include <streams.h>
 #include <tinyformat.h>
+#include <zeus/crypto/scrypt.h>
 
+#include <cassert>
 #include <memory>
 #include <span>
 #include <sstream>
 
+uint256 CBlockHeader::GetPoWHash() const
+{
+    // Historical Zeus Scrypt hashes the canonical 80-byte serialized header.
+    DataStream stream;
+    stream << *this;
+    assert(stream.size() == 80);
+
+    uint256 out;
+    zeus::Scrypt1024_1_1_256(stream.data(), out.data());
+    return out;
+}
+
 uint256 CBlockHeader::GetHash() const
 {
+    // Historical Zeus changed the block-id hash at block version 7.
+    // The genesis and all <=6 blocks therefore retain their Scrypt IDs.
+    if (nVersion <= 6) return GetPoWHash();
     return (HashWriter{} << *this).GetHash();
 }
 
