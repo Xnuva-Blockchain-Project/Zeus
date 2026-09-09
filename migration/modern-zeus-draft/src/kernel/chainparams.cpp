@@ -132,6 +132,13 @@ public:
         consensus.nProtocolV3Time = 1738936391;
         consensus.nProtocolV3_1Time = 4102437600;
         consensus.nLastPOWBlock = 1'000'000;
+
+        // Published Zeus maximum supply. The enforcement code is complete,
+        // but mainnet activation is intentionally unset until the authoritative
+        // live tip and historical issued supply are proven.
+        consensus.nMaxMoneySupply = 40'000'000 * COIN;
+        consensus.nSupplyCapActivationHeight = -1; // RELEASE BLOCKER
+
         consensus.nStakeTimestampMask = 0x0f;
         consensus.nCoinbaseMaturity = 100;
         consensus.nMaxReorganizationDepth = 500;
@@ -210,6 +217,8 @@ public:
         consensus.nProtocolV3Time = 1738936391;
         consensus.nProtocolV3_1Time = 1738936392;
         consensus.nLastPOWBlock = std::numeric_limits<int>::max();
+        consensus.nMaxMoneySupply = 40'000'000 * COIN;
+        consensus.nSupplyCapActivationHeight = -1;
         consensus.nStakeTimestampMask = 0x0f;
         consensus.nCoinbaseMaturity = 10;
         consensus.nMaxReorganizationDepth = 500;
@@ -285,6 +294,8 @@ public:
         consensus.nProtocolV3Time = 1738936391;
         consensus.nProtocolV3_1Time = 4102437600;
         consensus.nLastPOWBlock = 1000;
+        consensus.nMaxMoneySupply = 40'000'000 * COIN;
+        consensus.nSupplyCapActivationHeight = -1;
         consensus.nStakeTimestampMask = 0x0f;
         consensus.nCoinbaseMaturity = 10;
         consensus.nMaxReorganizationDepth = 50;
