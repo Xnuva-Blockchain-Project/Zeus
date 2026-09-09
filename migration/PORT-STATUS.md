@@ -15,6 +15,7 @@
 - Added a deterministic bootstrap script for materialising the exact Bitcoin Core v31.1 upstream tree independently.
 - Identified PoS-specific structures that vanilla Bitcoin Core does not provide and therefore must be transplanted deliberately.
 - Marked the existing 40m-related legacy subsidy cutoff as **unverified supply-cap logic**, not a migration assumption.
+- Began the actual 31.1 source port under `migration/modern-zeus-draft/`: legacy transaction timestamp serialization, coinstake semantics, empty staking output handling, block signatures and PoW/PoS block classification have draft modern implementations.
 
 ## Checkout
 
