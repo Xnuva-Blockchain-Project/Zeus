@@ -8,6 +8,7 @@
 #define BITCOIN_CHAIN_H
 
 #include <arith_uint256.h>
+#include <consensus/amount.h>
 #include <consensus/params.h>
 #include <flatfile.h>
 #include <kernel/cs_main.h>
@@ -143,6 +144,11 @@ public:
 
     // ZEUS LEGACY CONSENSUS: persisted stake modifier used by PoS kernel logic.
     uint256 nStakeModifier{};
+
+    // ZEUS SUPPLY CAP: cumulative net new issuance through this block.
+    // Fees are excluded because they transfer existing coins rather than minting
+    // new ones. This is a modern block-index field and requires a clean reindex.
+    CAmount nIssuedSupply{0};
 
     //! block header
     int32_t nVersion{0};
@@ -376,6 +382,8 @@ public:
         READWRITE(VARINT(obj.nStatus));
         // ZEUS LEGACY CONSENSUS: persist stake modifier with block index.
         READWRITE(obj.nStakeModifier);
+        // ZEUS SUPPLY CAP: modern block-index database field.
+        READWRITE(obj.nIssuedSupply);
         READWRITE(VARINT(obj.nTx));
         if (obj.nStatus & (BLOCK_HAVE_DATA | BLOCK_HAVE_UNDO)) READWRITE(VARINT_MODE(obj.nFile, VarIntMode::NONNEGATIVE_SIGNED));
         if (obj.nStatus & BLOCK_HAVE_DATA) READWRITE(VARINT(obj.nDataPos));
