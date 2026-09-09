@@ -17,6 +17,11 @@ inline constexpr unsigned int DONATION_PERCENTAGE{14};
 CAmount ProofOfWorkSubsidy();
 CAmount ProofOfStakeSubsidy(int height, const Consensus::Params& params);
 
+// Prospective capped subsidy helpers. These preserve the legacy scheduled
+// subsidy before activation and trim only the final minting block if needed.
+CAmount CappedProofOfWorkSubsidy(int height, CAmount previous_issued, const Consensus::Params& params);
+CAmount CappedProofOfStakeSubsidy(int height, CAmount previous_issued, const Consensus::Params& params);
+
 // Historical Zeus script flags are time-based, not Bitcoin buried-deployment heights.
 script_verify_flags ScriptVerifyFlags(int64_t block_time, const Consensus::Params& params);
 
