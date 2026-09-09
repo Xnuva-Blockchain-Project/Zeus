@@ -57,7 +57,12 @@ public:
         return (nBits == 0);
     }
 
+    // ZEUS LEGACY CONSENSUS:
+    // - block versions <= 6 use Scrypt as the block identifier;
+    // - versions > 6 use normal serialized double-SHA256;
+    // - Proof-of-Work always uses Scrypt regardless of block version.
     uint256 GetHash() const;
+    uint256 GetPoWHash() const;
 
     NodeSeconds Time() const
     {
