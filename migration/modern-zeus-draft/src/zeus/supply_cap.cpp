@@ -4,6 +4,7 @@
 #include <zeus/supply_cap.h>
 
 #include <algorithm>
+#include <chain.h>
 #include <consensus/params.h>
 
 namespace zeus {
@@ -54,6 +55,26 @@ bool CheckSupplyCap(const int height,
 CAmount NextIssuedSupply(const CAmount previous_issued, const CAmount block_net_new_issuance)
 {
     return previous_issued + std::max<CAmount>(0, block_net_new_issuance);
+}
+
+bool ValidateAndRecordSupply(CBlockIndex& index,
+                             const bool proof_of_stake,
+                             const CAmount coinbase_value,
+                             const CAmount actual_stake_reward,
+                             const CAmount fees,
+                             const Consensus::Params& params)
+{
+    const CAmount previous_issued = index.pprev ? index.pprev->nIssuedSupply : 0;
+    const CAmount block_issuance = proof_of_stake
+        ? NetNewPoSIssuance(actual_stake_reward, fees)
+        : NetNewPoWIssuance(coinbase_value, fees);
+
+    if (!CheckSupplyCap(index.nHeight, previous_issued, block_issuance, params)) {
+        return false;
+    }
+
+    index.nIssuedSupply = NextIssuedSupply(previous_issued, block_issuance);
+    return true;
 }
 
 } // namespace zeus
