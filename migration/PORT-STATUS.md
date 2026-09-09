@@ -4,6 +4,8 @@
 **Release status:** **NOT FOR RELEASE**  
 **Test status:** comprehensive chain testing intentionally deferred until the mechanical migration is substantially complete.
 
+**Hybrid status confirmed (2026-09-09): Zeus uses both Proof of Work and Proof of Stake. A temporary PoW-only correction was reverted; this branch is the hybrid PoW/PoS migration workspace.**
+
 ## Completed
 
 - Created isolated modernisation branch; Zeus `main` remains untouched.
