@@ -20,6 +20,20 @@ Bitcoin Core 0.13.2 with some patches from newer Bitcoin Core versions to offer 
 The maintained Zeus source is published at https://github.com/Xnuva-Blockchain-Project/Zeus.
 Official binary releases will be published only after qualification and tagging.
 
+Network bootstrap
+-----------------
+
+Until fixed-seed discovery is included in maintained clients, a fresh Zeus node
+can bootstrap from the project public node:
+
+```ini
+addnode=81.130.208.151:22396
+```
+
+The address above is the Xnuva Blockchain Project T620 node on a static public
+IPv4 address. Only the Zeus P2P port is used; RPC should not be exposed to the
+public Internet.
+
 License
 -------
 
