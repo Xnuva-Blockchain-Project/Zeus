@@ -18,6 +18,7 @@
 - Identified PoS-specific structures that vanilla Bitcoin Core does not provide and therefore must be transplanted deliberately.
 - Marked the existing 40m-related legacy subsidy cutoff as **unverified supply-cap logic**, not a migration assumption.
 - Began the actual 31.1 source port under `migration/modern-zeus-draft/`: legacy transaction timestamp serialization, coinstake semantics, empty staking output handling, block signatures and PoW/PoS block classification have draft modern implementations.
+- Added the Europa-class chain-identity security contract and a fail-closed hybrid PoW/PoS policy scaffold. Genesis is fixed; block 1, a buried anchor and minimum-chainwork/trust floor remain deliberately unset pending live-chain qualification.
 
 ## Checkout
 
@@ -38,14 +39,15 @@ The `modern-core` submodule is pinned to the exact Bitcoin Core v31.1 release co
 5. PoS kernel/modifier and retarget code.
 6. Zeus block-validation integration.
 7. Zeus wallet/RPC/mining/staking interfaces.
-8. Branding/package names.
-9. Only after the above: build and historical-chain validation.
-10. Separately: derive and implement the correct prospective 40,000,000 ZUS maximum-supply rule.
+8. Integrate the mandatory chain-identity guard into the central PoW/PoS block-building path.
+9. Branding/package names.
+10. Only after the above: build and historical-chain validation.
+11. Qualify canonical block 1, a buried live-chain anchor and a minimum-work/trust floor; prove wrong-chain refusal for both PoW and PoS and positive candidate creation on the genuine chain.
+12. Separately: derive and implement the correct prospective 40,000,000 ZUS maximum-supply rule.
 
 ## Hard gate
 
-Nothing from this branch is to be merged to `main`, released, or connected as an authoritative live node until historical compatibility is proven.
-
+Nothing from this branch is to be merged to `main`, released, or connected as an authoritative live node until historical compatibility is proven **and** `migration/CHAIN-IDENTITY-SECURITY.md` has passed its negative and positive qualification tests. The policy scaffold alone is not protection; the central PoW/PoS production path must consume it.
 
 ## Supply-cap implementation
 
