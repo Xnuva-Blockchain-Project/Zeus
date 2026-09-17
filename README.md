@@ -20,6 +20,19 @@ Bitcoin Core 0.13.2 with some patches from newer Bitcoin Core versions to offer 
 The maintained Zeus source is published at https://github.com/Xnuva-Blockchain-Project/Zeus.
 Official binary releases will be published only after qualification and tagging.
 
+Official project locations
+--------------------------
+
+The canonical maintained Zeus source repository is:
+
+https://github.com/Xnuva-Blockchain-Project/Zeus
+
+The current project website is:
+
+https://europazeus.org
+
+Older Zeus repositories, GitHub Pages sites or project accounts should be treated as legacy references only and are not authoritative for current development or releases.
+
 Network bootstrap
 -----------------
 
@@ -67,8 +80,7 @@ submit new unit tests for old code. Unit tests can be compiled and run
 (assuming they weren't disabled in configure) with: `make check`
 
 There are also [regression and integration tests](/qa) of the RPC interface, written
-in Python. These tests can be run (if the [test dependencies](/qa) are installed)
-with: `qa/pull-tester/rpc-tests.py`
+in Python. These tests can be run (if the [test dependencies](/qa) are installed) with: `qa/pull-tester/rpc-tests.py`
 
 Maintained releases are qualified against the exact public source commit before tagging.
 
