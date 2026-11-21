@@ -23,7 +23,8 @@
 - [ ] Plan coordinated, non-lossy ticker/name mapping for EZHScan, XNUVA Game treasury and mining rotation, web properties and any third-party software. Preserve old identifiers as explicit aliases when required for historic data reconciliation; avoid duplicate credits.
 - [ ] Validate wallet import/backup/restore, historic and new transactions, mining rewards, display units, payment URIs, mixed-version compatibility, peer upgrades and chain explorers in isolated tests.
 - [ ] Check potential market ticker/name conflicts and notify node operators and any external integrators *before* public launch. **No mainnet cutover or public release is scheduled.**
-- [ ] Preserve Proof-of-Stake kernel hashes, stake modifiers, coinstake signatures, staking interfaces and staking rewards independently of the RandomX PoW rebrand.\n
+- [ ] Preserve Proof-of-Stake kernel hashes, stake modifiers, coinstake signatures, staking interfaces and staking rewards independently of the RandomX PoW rebrand.
+
 **Naming is decided for the intended modernised release, not proof of network acceptance or activation readiness.**
 
 ## Project decision and rationale
