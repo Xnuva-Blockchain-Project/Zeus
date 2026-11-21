@@ -5,6 +5,27 @@
 **Branch:** `modernisation/randomx-hardfork-experimental-20261121` (forked from `modernisation/bitcoin-core-31.1-experimental-do-not-release`)
 **Principle:** Reliability first, release second.
 
+## Planned RandomX-era public rebrand
+
+**Operator naming decision recorded 2026-11-21; future release only.**
+
+| | Existing live identity | Intended modernised public identity |
+|---|---|---|
+| Display name | Zeus | **ZeusX** |
+| Display ticker | **ZUS** | **ZUSX** |
+| Meaning of X | n/a | RandomX Proof-of-Work algorithm |
+
+**A name or ticker change is presentation/metadata, not by itself a consensus hard fork.** The separately specified future RandomX PoW activation is a consensus hard fork. No rebrand has yet been deployed to wallets, binaries, explorers, websites, RPC systems, exchange listings or the live network.
+
+- [ ] Preserve original genesis, network identity, historical block IDs, transactions, supply/denomination, UTXO ownership, addresses, private keys, signature domains, existing wallet backups and chain continuity. **No 1:1 coin swap, new token issuance, re-genesis or balance reset.**
+- [ ] Stage ZeusX/ZUSX on the isolated modernised wallet GUI, release name, documentation, desktop shortcuts, package labels and user-facing notices. Preserve historic Zeus/ZUS labels where necessary to explain previous transactions and ensure backward-compatible recovery.
+- [ ] Inventory embedded old-brand identifiers in RPC, wallet filenames/paths, URI handling, configuration, network P2P, miners and cross-system APIs. Do **not** globally find/replace ZUS or rename consensus-critical structures, addresses, signed-message prefixes, database keys or networking magic by accident.
+- [ ] Plan coordinated, non-lossy ticker/name mapping for EZHScan, XNUVA Game treasury and mining rotation, web properties and any third-party software. Preserve old identifiers as explicit aliases when required for historic data reconciliation; avoid duplicate credits.
+- [ ] Validate wallet import/backup/restore, historic and new transactions, mining rewards, display units, payment URIs, mixed-version compatibility, peer upgrades and chain explorers in isolated tests.
+- [ ] Check potential market ticker/name conflicts and notify node operators and any external integrators *before* public launch. **No mainnet cutover or public release is scheduled.**
+- [ ] Preserve Proof-of-Stake kernel hashes, stake modifiers, coinstake signatures, staking interfaces and staking rewards independently of the RandomX PoW rebrand.\n
+**Naming is decided for the intended modernised release, not proof of network acceptance or activation readiness.**
+
 ## Project decision and rationale
 
 During each coin's independent modernisation, investigate transitioning **future Proof-of-Work blocks only** to CPU-optimised RandomX while preserving the existing independent Proof-of-Stake pathway through a deliberately specified, miner/node-coordinated **hard fork**. XNUVA is the existing RandomX reference, **not** a drop-in, independently qualified consensus implementation. Rationale: more accessible CPU mining for ordinary users, a more consistent miner maintenance framework, and potentially reduced long-term support burden. CPU preference is not CPU-only enforcement; RandomX neither guarantees decentralisation nor protects a small chain without sufficient independent hashrate.
