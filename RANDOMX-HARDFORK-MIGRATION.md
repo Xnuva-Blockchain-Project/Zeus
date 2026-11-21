@@ -52,12 +52,12 @@ Audit active PoW/difficulty/reward parameters and currently running miners; patc
 
 ## Shared RandomX foundation (RX-001 — source prepared)
 
-The common hashing module is being developed independently on XNUVA branch `feature/shared-randomx-engine-20261121`:
+The shared engine is now maintained in the independent **Xnuva-RandomX-Engine** repository (original XNUVA source branch retained for provenance):
 
-- [Shared RandomX engine source](https://github.com/Xnuva-Blockchain-Project/Xnuva/tree/feature/shared-randomx-engine-20261121/shared-randomx-engine)
-- [Per-coin adapter contract and hybrid PoS precautions](https://github.com/Xnuva-Blockchain-Project/Xnuva/blob/feature/shared-randomx-engine-20261121/shared-randomx-engine/docs/COIN-INTEGRATION.md)
+- [Shared RandomX engine source](https://github.com/Xnuva-Blockchain-Project/Xnuva-RandomX-Engine)
+- [Per-coin adapter contract and hybrid PoS precautions](https://github.com/Xnuva-Blockchain-Project/Xnuva-RandomX-Engine/blob/main/docs/COIN-INTEGRATION.md)
 - Foundation is pinned to XNUVA's existing RandomX V2 source at `853a3171ece198f60b5125a16dca83d68a8f53c3`, with standalone CMake, an explicit 80-byte-header interface, light-cache reuse and reference-vector tests.
-- **Current evidence:** GitHub source commit verified; actual standalone compilation and CTest runs are still pending. The engine is NOT imported, linked or activated by this coin yet.
+- **Current evidence:** Imported GitHub source snapshot verified in its dedicated repository; actual standalone compilation and CTest runs are still pending. The engine is NOT imported, linked or activated by this coin yet.
 - A separately audited **coin adapter** must provide historical consensus compatibility, a deterministic seed schedule, target/difficulty, activation and independent network testing before it is safe to use. Existing Proof-of-Stake and hybrid network rules must remain valid and untouched by RandomX hashing.
 
 ## Required stage gates
