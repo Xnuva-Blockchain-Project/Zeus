@@ -56,6 +56,7 @@ The shared engine is now maintained in the independent **Xnuva-RandomX-Engine** 
 
 - [Shared RandomX engine source](https://github.com/Xnuva-Blockchain-Project/Xnuva-RandomX-Engine)
 - [Per-coin adapter contract and hybrid PoS precautions](https://github.com/Xnuva-Blockchain-Project/Xnuva-RandomX-Engine/blob/main/docs/COIN-INTEGRATION.md)
+- [Binding modular RandomX architecture standard](https://github.com/Xnuva-Blockchain-Project/Xnuva-RandomX-Engine/blob/main/docs/MODULAR-RANDOMX-ARCHITECTURE.md) — build-time pinned C++ dependency, per-coin consensus adapters, no automatic engine updates; full independent test/release gates for each adoption.
 - Foundation is pinned to XNUVA's existing RandomX V2 source at `853a3171ece198f60b5125a16dca83d68a8f53c3`, with standalone CMake, an explicit 80-byte-header interface, light-cache reuse and reference-vector tests.
 - **Current evidence:** Imported GitHub source snapshot verified in its dedicated repository; actual standalone compilation and CTest runs are still pending. The engine is NOT imported, linked or activated by this coin yet.
 - A separately audited **coin adapter** must provide historical consensus compatibility, a deterministic seed schedule, target/difficulty, activation and independent network testing before it is safe to use. Existing Proof-of-Stake and hybrid network rules must remain valid and untouched by RandomX hashing.
