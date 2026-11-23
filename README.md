@@ -113,3 +113,13 @@ Changes should be tested by somebody other than the developer who wrote the
 code. This is especially important for large or high-risk changes. It is useful
 to add a test plan to the pull request description if testing the changes is
 not straightforward.
+
+## Engineering Standards and Test Records
+
+This project's preservation, modernisation and release-qualification work is documented in the [Golden Standard Cryptocurrency Modernisation Handbook (GSH)](https://github.com/Xnuva-Blockchain-Project/Golden-Standard-Modernisation). The handbook is an engineering evidence register, **not** a declaration that a build, network or wallet is release-ready.
+
+- [Zeus (ZUS), including both PoW and PoS verification — history, checksums and qualification status](https://github.com/Xnuva-Blockchain-Project/Golden-Standard-Modernisation/blob/main/coins/ZUS/README.md)
+- [Shared RandomX module standards](https://github.com/Xnuva-Blockchain-Project/Golden-Standard-Modernisation/blob/main/randomx/README.md) and [completed/outstanding test checklist](https://github.com/Xnuva-Blockchain-Project/Golden-Standard-Modernisation/blob/main/randomx/checklist.md)
+
+Tests and results are scoped to their own coin, exact source revision and environment. A PASS for another coin does not establish compatibility here. Follow the GSH's preservation, independent-verification and release-gating rules before any consensus, wallet or network change.
+
