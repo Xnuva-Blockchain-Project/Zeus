@@ -4,7 +4,7 @@ Zeus (ZUS) is maintained by the XNUVA Blockchain Project at https://github.com/X
 
 Current consensus: Hybrid PoW / PoS. Proposed name: ZeusX (ZUSX). Proposed upgrades are not active merely because they are documented.
 
-Maintained existing blockchain; preservation of chain history and balances is the objective. Genesis identifier requires source and live-node verification before inclusion here.
+Maintained existing blockchain; preservation of chain history and balances is the objective. 
 
 
 - Official website: https://europazeus.org/
@@ -13,3 +13,9 @@ Maintained existing blockchain; preservation of chain history and balances is th
 - Roadmap: https://europazeus.org/randomx-roadmap.html
 
 See [transparency policy](TRANSPARENCY.md).
+
+Mainnet genesis (source-declared): `000007a830306520fa2efc02258706ec6bac5514f6396b9313df676ac498e8ee`
+
+Source: https://github.com/Xnuva-Blockchain-Project/Zeus/blob/main/src/chainparams.cpp#L158
+
+Live-node RPC verification remains pending; this is not a live network health or release qualification claim.
