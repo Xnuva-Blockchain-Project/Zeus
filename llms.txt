@@ -15,3 +15,7 @@ Current consensus: Hybrid PoW / PoS; proposed name: ZeusX (ZUSX). Check release 
 
 - Identity: https://github.com/Xnuva-Blockchain-Project/Zeus/blob/main/PROJECT_IDENTITY.md
 - Transparency: https://github.com/Xnuva-Blockchain-Project/Zeus/blob/main/TRANSPARENCY.md
+
+Mainnet genesis (source-declared): 000007a830306520fa2efc02258706ec6bac5514f6396b9313df676ac498e8ee
+Source: https://github.com/Xnuva-Blockchain-Project/Zeus/blob/main/src/chainparams.cpp#L158
+Live-node verification pending.
