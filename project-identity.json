@@ -12,7 +12,8 @@
   "projectSellsCoins": false,
   "preferredAcquisition": "mining",
   "officialExchangeListingPromoted": false,
-  "genesisHash": null,
-  "genesisVerification": "Not independently verified for this register; consult source and synced node",
-  "updated": "2026-11-24"
+  "genesisHash": "000007a830306520fa2efc02258706ec6bac5514f6396b9313df676ac498e8ee",
+  "genesisVerification": "Matched maintained mainnet source declaration; live-node RPC verification pending",
+  "updated": "2026-11-24",
+  "genesisSource": "https://github.com/Xnuva-Blockchain-Project/Zeus/blob/main/src/chainparams.cpp#L158"
 }
