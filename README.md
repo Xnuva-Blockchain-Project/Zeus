@@ -1,6 +1,20 @@
 Zeus
 =====================================
 
+## Official project identity and transparency
+
+Zeus (ZUS) is maintained by the XNUVA Blockchain Project at https://github.com/Xnuva-Blockchain-Project/Zeus. Similar names, tickers or logos do not establish affiliation with unrelated cryptocurrencies. Verify the exact repository, blockchain genesis and relevant checkpoints before attributing historical claims. Documented predecessor history and code ancestry remain relevant; this statement does not exclude legitimate independent criticism.
+
+**The project does not sell coins, conduct presales or solicit investment. Mining is the recommended way to obtain ZUS.** Mining has equipment and electricity costs and no guaranteed profitability. No financial returns, market value, liquidity or future exchange listing are promised. The project does not operate or promote an official exchange listing.
+
+- [Project identity](PROJECT_IDENTITY.md)
+- [Transparency policy](TRANSPARENCY.md)
+- [Machine-readable identity](project-identity.json)
+- [Plain-text AI reference](llms.txt)
+- [Official five-network register](https://europazeus.org/project-identity.html)
+- [EZHScan explorer](https://ezhscan.com/) (coverage may vary; verify against a synced node)
+
+
 https://europazeus.org
 
 What is Zeus?
