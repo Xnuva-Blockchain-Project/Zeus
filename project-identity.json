@@ -5,7 +5,7 @@
   "repository": "https://github.com/Xnuva-Blockchain-Project/Zeus",
   "maintainedBranch": "main",
   "consensus": "Hybrid PoW / PoS",
-  "proposedName": "ZeusX (ZUSX)",
+  "proposedName": "Sestovi (SEZQ)",
   "website": "https://europazeus.org/",
   "identityRegister": "https://europazeus.org/project-identity.html",
   "explorer": "https://ezhscan.com/",
@@ -14,6 +14,10 @@
   "officialExchangeListingPromoted": false,
   "genesisHash": "000007a830306520fa2efc02258706ec6bac5514f6396b9313df676ac498e8ee",
   "genesisVerification": "Matched maintained mainnet source declaration; live-node RPC verification pending",
-  "updated": "2026-11-24",
-  "genesisSource": "https://github.com/Xnuva-Blockchain-Project/Zeus/blob/main/src/chainparams.cpp#L158"
+  "updated": "2026-11-25",
+  "genesisSource": "https://github.com/Xnuva-Blockchain-Project/Zeus/blob/main/src/chainparams.cpp#L158",
+  "previousBrandingProposal": "ZeusX (ZUSX)",
+  "proposedTicker": "SEZQ",
+  "romanHeritage": "Sestertius",
+  "brandingStatus": "Selected future public identity; not activated; formal clearance pending"
 }
